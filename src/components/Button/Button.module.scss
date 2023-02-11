@@ -4,13 +4,13 @@
     justify-content: center;
     padding: 8px 16px;
     border-radius: 4px;
+    font-family: inherit;
     font-size: 1.6rem;
     font-weight: 700;
     min-width: 100px;
     background-color: var(--white);
     border: 1px solid transparent;
     cursor: pointer;
-    font-family: inherit;
     user-select: none;
 
     + .wrapper {

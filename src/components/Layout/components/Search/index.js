@@ -51,6 +51,13 @@ function Search() {
         setShowSearchResult(false);
     };
 
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchInput(searchValue);
+        }
+    };
+
     return (
         <HeadlessTippy
             interactive
@@ -73,7 +80,7 @@ function Search() {
                     value={searchInput}
                     placeholder="Search accounts and videos"
                     spellCheck={false}
-                    onChange={(e) => setSearchInput(e.target.value)}
+                    onChange={handleChange}
                     onFocus={() => setShowSearchResult(true)}
                 />
                 {!!searchInput && !loading && (
@@ -82,7 +89,7 @@ function Search() {
                     </button>
                 )}
                 {loading && <FontAwesomeIcon className={cx('spinner')} icon={faSpinner} />}
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                     <SearchIcon />
                 </button>
             </div>

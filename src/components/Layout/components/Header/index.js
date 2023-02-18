@@ -11,9 +11,11 @@ import {
     faGear,
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
+import routesConfig from '~/configs/routes';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -96,7 +98,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="Tiktok" />
+                <Link to={routesConfig.home} className={cx('logo-link')}>
+                    <img src={images.logo} alt="Tiktok" />
+                </Link>
 
                 <Search />
 
@@ -133,10 +137,10 @@ function Header() {
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
                             <Image
-                                src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/dc60cb071cfa78089851f938d59db628~c5_300x300.webp?x-expires=1675947600&x-signature=cotcj4jT9rUIVMg7dteKzeW40Ag%3D "
+                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/05aa222706c452c8ad0ea7d2e719a745~c5_100x100.jpeg?x-expires=1676912400&x-signature=ajne27PQC5FpfMBZ806DXqvr%2FrE%3D"
                                 className={cx('user-avatar')}
                                 alt="name"
-                                fallback="https://scontent.fhan2-4.fna.fbcdn.net/v/t39.30808-6/326075384_628566649027182_8323879886469676548_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=BI7X0yFGdI8AX9w8Cly&_nc_ht=scontent.fhan2-4.fna&oh=00_AfBkKTwpBgWa1UeBEnIAJNWCkZBt2pe9CImZp54P0IIgQQ&oe=63EAAEC9"
+                                fallback="https://scontent.fdad1-1.fna.fbcdn.net/v/t39.30808-6/326075384_628566649027182_8323879886469676548_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=pDXw7uWMurcAX_Fdklu&_nc_ht=scontent.fdad1-1.fna&oh=00_AfCiKHrG4uzrS5_YlHPu7xdxothIueayO7569jVg7yRF-A&oe=63F68C49"
                             />
                         ) : (
                             <button className={cx('more-btn')}>

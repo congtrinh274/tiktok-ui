@@ -137,7 +137,7 @@ function Header() {
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
                             <Image
-                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/05aa222706c452c8ad0ea7d2e719a745~c5_100x100.jpeg?x-expires=1676912400&x-signature=ajne27PQC5FpfMBZ806DXqvr%2FrE%3D"
+                                src="https://scontent.fdad1-1.fna.fbcdn.net/v/t39.30808-6/326075384_628566649027182_8323879886469676548_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=pDXw7uWMurcAX_Fdklu&_nc_ht=scontent.fdad1-1.fna&oh=00_AfCiKHrG4uzrS5_YlHPu7xdxothIueayO7569jVg7yRF-A&oe=63F68C49"
                                 className={cx('user-avatar')}
                                 alt="name"
                                 fallback="https://scontent.fdad1-1.fna.fbcdn.net/v/t39.30808-6/326075384_628566649027182_8323879886469676548_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=pDXw7uWMurcAX_Fdklu&_nc_ht=scontent.fdad1-1.fna&oh=00_AfCiKHrG4uzrS5_YlHPu7xdxothIueayO7569jVg7yRF-A&oe=63F68C49"

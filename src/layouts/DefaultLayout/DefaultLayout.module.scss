@@ -5,12 +5,16 @@
 }
 
 .container {
-    width: var(--default-layout-width);
-    padding: 0 var(--default-layout-horizontal-spacer);
-    margin-top: var(--default-layout-header-height);
     display: flex;
+    width: var(--default-layout-width);
+    max-width: 100%;
+    margin-top: var(--default-layout-header-height);
+    padding: 0 var(--default-layout-right-spacer) 0 var(--default-layout-left-spacer);
 }
 
 .content {
-    flex: 1;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    height: 4000px;
 }

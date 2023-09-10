@@ -28,6 +28,16 @@
     margin-left: 8px;
 }
 
+.customLeftIcon {
+    position: relative;
+
+    .icon {
+        position: absolute;
+        left: 12px;
+        top: 25%;
+    }
+}
+
 .icon {
     display: inline-block;
     width: 24px;
@@ -77,8 +87,8 @@
 
 // Button sizes
 .small {
-    padding: 4px 16px;
-    min-width: 88px;
+    padding: 6px 16px;
+    min-width: 100px;
 }
 
 .large {

@@ -19,7 +19,7 @@
 .inner {
     height: 100%;
     width: var(--default-layout-width);
-    padding: 0 var(--default-layout-horizontal-spacer);
+    padding: 0 var(--default-layout-right-spacer) 0 var(--default-layout-left-spacer);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,6 +27,7 @@
 
 .logo-link {
     display: flex;
+    min-width: 300px;
 }
 
 // Action
@@ -70,6 +71,10 @@
     color: var(--white);
     font-family: var(--font-family);
     background-color: var(--primary);
+}
+
+.desktop-icon {
+    margin: 0 12px 0 24px;
 }
 
 .user-avatar {

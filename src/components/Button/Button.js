@@ -18,6 +18,7 @@ function Button({
     children,
     className,
     leftIcon,
+    customLeftIcon,
     rightIcon,
     onClick,
     ...passProps
@@ -53,6 +54,7 @@ function Button({
         disabled,
         small,
         large,
+        customLeftIcon,
     });
 
     return (
@@ -76,6 +78,7 @@ Button.propTypes = {
     large: PropTypes.bool,
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
+    customLeftIcon: PropTypes.bool,
     leftIcon: PropTypes.node,
     rightIcon: PropTypes.node,
     onClick: PropTypes.func,

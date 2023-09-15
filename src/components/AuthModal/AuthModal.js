@@ -92,7 +92,28 @@ const MODAL_SIGNUP_DATA = {
             label: 'Continue with Google',
         },
     ],
-    additional: [
+};
+
+const MODAL_SIGNUP_DATA_EXPANDED = {
+    title: 'Sign up for TikTok',
+    data: [
+        {
+            icon: <UserIcon />,
+            label: 'Use phone or email',
+            children: {
+                title: 'Sign up',
+                type: 'component',
+                data: DefaultRegisterForm,
+            },
+        },
+        {
+            icon: <FacebookIcon />,
+            label: 'Continue with Facebook',
+        },
+        {
+            icon: <GoogleIcon />,
+            label: 'Continue with Google',
+        },
         {
             icon: <TwitterIcon />,
             label: 'Continue with Twitter',
@@ -108,24 +129,33 @@ const MODAL_SIGNUP_DATA = {
     ],
 };
 
-function AuThenModal({ onToggleModal }) {
+function AuThModal({ onToggleModal }) {
     const currentUser = false;
-    const [isLoginDisplay, setIsLoginDisplay] = useState(true);
+    const [displayedForm, setDisplayedForm] = useState('login');
     const [history, setHistory] = useState([MODAL_LOGIN_DATA]);
-    const [showSeeMoreBtn, setShowSeeMoreBtn] = useState(true);
+    const [additional, setAdditional] = useState(true);
     const currentTab = history[history.length - 1];
 
     useEffect(() => {
-        const AuthType = isLoginDisplay ? MODAL_LOGIN_DATA : MODAL_SIGNUP_DATA;
-        setHistory([AuthType]);
-    }, [isLoginDisplay, currentUser]);
+        setAdditional(true);
+    }, [history]);
 
-    const handleToggleForm = () => {
-        setIsLoginDisplay(!isLoginDisplay);
-    };
+    useEffect(() => {
+        let AuthType = null;
+        if (displayedForm === 'login') {
+            AuthType = MODAL_LOGIN_DATA;
+        } else if (displayedForm === 'signup') {
+            AuthType = MODAL_SIGNUP_DATA;
+        } else {
+            AuthType = MODAL_SIGNUP_DATA_EXPANDED;
+        }
+        setHistory([AuthType]);
+    }, [displayedForm, currentUser]);
 
     const handleGoBack = () => {
-        setHistory((prev) => prev.slice(0, prev.length - 1));
+        history[0] === MODAL_SIGNUP_DATA_EXPANDED
+            ? setDisplayedForm('signup')
+            : setHistory((prev) => prev.slice(0, prev.length - 1));
     };
 
     const handleClickAuthItem = (item) => {
@@ -136,10 +166,8 @@ function AuThenModal({ onToggleModal }) {
     };
 
     const handleClickSeeMore = () => {
-        if (showSeeMoreBtn) {
-            MODAL_SIGNUP_DATA.data = [...MODAL_SIGNUP_DATA.data, ...MODAL_SIGNUP_DATA.additional];
-            setShowSeeMoreBtn(false); // Ẩn nút "see-more-btn"
-        }
+        setDisplayedForm('signupExpanded');
+        setAdditional(false);
     };
 
     return (
@@ -178,7 +206,7 @@ function AuThenModal({ onToggleModal }) {
                                             {item.label}
                                         </Button>
                                     ))}
-                                    {showSeeMoreBtn && !isLoginDisplay && (
+                                    {additional && displayedForm === 'signup' && (
                                         <div className={cx('see-more-btn')} onClick={handleClickSeeMore}>
                                             <ChevronDownIcon />
                                         </div>
@@ -202,17 +230,17 @@ function AuThenModal({ onToggleModal }) {
                         </p>
                     </div>
                     <div className={cx('footer')}>
-                        {isLoginDisplay ? (
+                        {displayedForm === 'login' ? (
                             <>
                                 Don't have an account?
-                                <span className={cx('signup-btn')} onClick={handleToggleForm}>
+                                <span className={cx('signup-btn')} onClick={() => setDisplayedForm('signup')}>
                                     Sign up
                                 </span>
                             </>
                         ) : (
                             <>
                                 Already have an account?
-                                <span className={cx('signup-btn')} onClick={handleToggleForm}>
+                                <span className={cx('signup-btn')} onClick={() => setDisplayedForm('login')}>
                                     Log in
                                 </span>
                             </>
@@ -224,8 +252,8 @@ function AuThenModal({ onToggleModal }) {
     );
 }
 
-AuThenModal.propTypes = {
+AuThModal.propTypes = {
     onToggleModal: PropTypes.func,
 };
 
-export default AuThenModal;
+export default AuThModal;

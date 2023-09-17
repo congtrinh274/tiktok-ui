@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './DefaultForm.module.scss';
 import { TriangleIcon } from '~/components/Icons';
@@ -28,7 +28,11 @@ function DefaultRegisterForm() {
     const years = Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i); // Last 100 years
 
     const handleClick = (btnName) => {
-        setActiveBtn(btnName);
+        if (activeBtn === btnName) {
+            setActiveBtn(null);
+        } else {
+            setActiveBtn(btnName);
+        }
     };
 
     const handleSelectValue = (value) => {
@@ -36,6 +40,7 @@ function DefaultRegisterForm() {
             ...selectedValue,
             [activeBtn]: value,
         });
+        setActiveBtn(null);
     };
 
     return (
@@ -47,7 +52,7 @@ function DefaultRegisterForm() {
                         {selected}
                         <TriangleIcon className={cx(activeBtn === btnName ? 'right-icon-rotated' : 'right-icon')} />
                         {activeBtn === btnName && (
-                            <div className={cx('dropdown')}>
+                            <div className={cx('dropdown')} onClick={(e) => e.stopPropagation()}>
                                 {btnName === 'Month' &&
                                     months.map((month) => (
                                         <div

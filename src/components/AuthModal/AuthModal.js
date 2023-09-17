@@ -153,7 +153,7 @@ function AuThModal({ onToggleModal }) {
     }, [displayedForm, currentUser]);
 
     const handleGoBack = () => {
-        history[0] === MODAL_SIGNUP_DATA_EXPANDED
+        displayedForm === 'signupExpanded'
             ? setDisplayedForm('signup')
             : setHistory((prev) => prev.slice(0, prev.length - 1));
     };

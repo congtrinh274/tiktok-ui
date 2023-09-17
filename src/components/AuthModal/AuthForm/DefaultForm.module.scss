@@ -1,0 +1,80 @@
+.dob-title {
+    color: rgb(22, 24, 35);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 4px;
+}
+
+.dob-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dob-btn {
+    position: relative;
+    width: 120px;
+    height: 44px;
+    padding: 0px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(22, 24, 35);
+    font-size: 16px;
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dropdown {
+    left: 0px;
+    right: 0px;
+    width: 120px;
+    max-height: 320px;
+    overflow: auto;
+    position: absolute;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 12px;
+    top: 50px;
+    z-index: 12;
+    display: block;
+    transition: display 0.3s ease 0s;
+}
+
+.option-item {
+    height: 34px;
+    overflow: auto;
+    font-size: 16px;
+    padding: 0px 12px;
+    cursor: pointer;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(22, 24, 35);
+    background: unset;
+}
+
+.right-icon {
+    color: rgb(22, 24, 35);
+    transition: all 0.3s ease 0s;
+    transform: rotateZ(0deg);
+}
+
+.right-icon-rotated {
+    color: rgb(22, 24, 35);
+    transition: all 0.3s ease 0s;
+    transform: rotateZ(180deg);
+}
+
+.text {
+    color: rgba(22, 24, 35, 0.5);
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 16px;
+}
+
+.main-container {
+    height: 500px;
+}
